@@ -1,0 +1,8 @@
+box: algas/wercker-mybox
+dummy:
+  steps:
+    - script:
+        name: dummy
+        code: |
+          python --version
+
