@@ -4,5 +4,12 @@ dummy:
     - script:
         name: dummy
         code: |
+          echo 'hello'
+
+python-version:
+  steps:
+    - script:
+        name: python version
+        code: |
           python --version
 
