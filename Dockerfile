@@ -13,3 +13,5 @@ RUN apt-get install -y vim lv curl wget git python
 ## install pip
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
+EXPOSE 8888
+
