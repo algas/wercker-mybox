@@ -2,10 +2,10 @@ box: algas/wercker-mybox
 
 services:
   -id: mysql
+  username: foo
+  password: bar
   env:
     MYSQL_ROOT_PASSWORD: secret
-    MYSQL_HOST: mysql
-    MYSQL_PORT: 3306
     MYSQL_USER: foo
     MYSQL_PASSWORD: bar
     MYSQL_DATABASE: user
