@@ -1,5 +1,12 @@
 box: algas/wercker-mybox
 
+services:
+  -id: mysql
+  username: foo
+  password: bar
+  env:
+    MYSQL_ROOT_PASSWORD: secret
+
 dummy:
   steps:
     - script:
@@ -8,12 +15,6 @@ dummy:
           echo 'hello'
 
 build:
-  services:
-    -id: mysql
-    username: foo
-    password: bar
-    env:
-      MYSQL_ROOT_PASSWORD: secret
   steps:
     - script:
         name: migrate database
@@ -30,7 +31,6 @@ migrate:
 
 dev:
   steps:
-    - pip-install
     - script:
         name: migrate database
         code: |
