@@ -8,10 +8,9 @@ RUN \
   apt-get upgrade -y
 
 ## install python and other packages
-RUN apt-get install -y vim lv curl wget git python
+RUN apt-get install -y vim lv curl wget git python libmysqlclient-dev mysql-client
 
 ## install pip
 RUN wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 EXPOSE 8888
-
