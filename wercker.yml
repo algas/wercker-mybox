@@ -1,9 +1,7 @@
 box: algas/wercker-mybox
 
 services:
-  -id: mysql
-  username: foo
-  password: bar
+  -id: mariadb
   env:
     MYSQL_ROOT_PASSWORD: secret
 
