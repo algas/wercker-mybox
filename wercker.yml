@@ -5,7 +5,9 @@ build:
     - id: mysql
       env:
         MYSQL_ROOT_PASSWORD: mypassword
-
+        MYSQL_USER: test
+        MYSQL_PASSWORD: secret
+        MYSQL_DATABASE: user
   steps:
     - script:
         name: env
