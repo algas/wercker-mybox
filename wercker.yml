@@ -37,9 +37,12 @@ migrate:
 
 dev:
   services:
-    - id: mariadb
+    - id: mysql
       env:
-        MYSQL_ROOT_PASSWORD: mypassword
+        MYSQL_RANDOM_ROOT_PASSWORD: yes
+        MYSQL_USER: test
+        MYSQL_PASSWORD: secret
+        MYSQL_DATABASE: user
   steps:
     - script:
         name: env
