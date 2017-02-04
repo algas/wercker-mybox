@@ -15,6 +15,14 @@ dummy:
 build:
   steps:
     - script:
+        name: env
+        code: env
+    - script:
+        name: "Wait for MariaDB connection"
+        code: |
+          while ! nc -q 1 $MARIADB_PORT_3306_TCP_ADDR $MARIADB_PORT_3306_TCP_PORT
+          </dev/null; do sleep 3; done
+    - script:
         name: migrate database
         code: |
           ./scripts/migrate.sh
