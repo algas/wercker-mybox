@@ -2,10 +2,7 @@ box: algas/wercker-mybox
 
 build:
   services:
-    - id: mariadb
-      username: $USERNAME
-      password: $PASSWORD
-      tag: latest
+    - id: mysql
       env:
         MYSQL_ROOT_PASSWORD: mypassword
 
