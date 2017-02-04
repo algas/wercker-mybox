@@ -5,13 +5,6 @@ services:
   env:
     MYSQL_ROOT_PASSWORD: secret
 
-dummy:
-  steps:
-    - script:
-        name: dummy
-        code: |
-          echo 'hello'
-
 build:
   steps:
     - script:
@@ -26,6 +19,13 @@ build:
         name: migrate database
         code: |
           ./scripts/migrate.sh
+
+dummy:
+  steps:
+    - script:
+        name: dummy
+        code: |
+          echo 'hello'
 
 migrate:
   steps:
