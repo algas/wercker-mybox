@@ -1,10 +1,12 @@
 box: algas/wercker-mybox
 
 services:
-  -id: mariadb
-  username: $MARIADB_USERNAME
-  password: $MARIADB_PASSWORD
-  tag: latest
+  -id: mysql
+  env:
+    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    MYSQL_USER: $MYSQL_USER
+    MYSQL_PASSWORD: $MYSQL_PASSWORD
+    MYSQL_DATABASE: $MYSQL_DATABASE
 
 dummy:
   steps:
