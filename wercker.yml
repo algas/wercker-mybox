@@ -4,7 +4,7 @@ build:
   services:
     - id: mysql
       env:
-        MYSQL_ROOT_PASSWORD: mypassword
+        MYSQL_RANDOM_ROOT_PASSWORD: yes
         MYSQL_USER: test
         MYSQL_PASSWORD: secret
         MYSQL_DATABASE: user
@@ -13,8 +13,8 @@ build:
         name: env
         code: env
     - script:
-        name: "Wait for MariaDB connection"
-        code: sleep 10
+        name: Wait for MariaDB connection
+        code: sleep 10s
     - script:
         name: migrate database
         code: |
@@ -38,19 +38,15 @@ migrate:
 dev:
   services:
     - id: mariadb
-      username: $USERNAME
-      password: $PASSWORD
-      tag: latest
       env:
         MYSQL_ROOT_PASSWORD: mypassword
-
   steps:
     - script:
         name: env
         code: env
     - script:
-        name: "Wait for MariaDB connection"
-        code: sleep 20s
+        name: "Wait for MySQL connection"
+        code: sleep 10s
     - script:
         name: migrate database
         code: |
