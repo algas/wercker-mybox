@@ -1,4 +1,11 @@
 box: algas/wercker-mybox
+
+services:
+  -id: mariadb
+  username: $MARIADB_USERNAME
+  password: $MARIADB_PASSWORD
+  tag: latest
+
 dummy:
   steps:
     - script:
@@ -6,16 +13,24 @@ dummy:
         code: |
           echo 'hello'
 
-python-version:
+build:
+  steps:
+    - pip-install
+
+migrate:
   steps:
     - script:
-        name: python version
+        name: migrate database
         code: |
-          python --version
+          ./scripts/migrate.sh
 
 dev:
   steps:
     - pip-install
+    - script:
+        name: migrate database
+        code: |
+          ./scripts/migrate.sh
     - internal/watch:
         code: python app.py
         reload: true
