@@ -3,10 +3,10 @@ box: algas/wercker-mybox
 services:
   -id: mysql
   env:
-    MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-    MYSQL_USER: $MYSQL_USER
-    MYSQL_PASSWORD: $MYSQL_PASSWORD
-    MYSQL_DATABASE: $MYSQL_DATABASE
+    MYSQL_ROOT_PASSWORD: secret
+    MYSQL_USER: foo
+    MYSQL_PASSWORD: bar
+    MYSQL_DATABASE: user
 
 dummy:
   steps:
