@@ -1,1 +1,3 @@
-mysql -h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -u "$MYSQL_ENV_MYSQL_USER" -p"$MYSQL_ENV_MYSQL_PASSWORD" -e "create table user(id int);" $MYSQL_ENV_MYSQL_DATABASE
+mysql -h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -u "$MYSQL_ENV_MYSQL_USER" -p"$MYSQL_ENV_MYSQL_PASSWORD" -e "create table user(id int not null auto_increment, name varchar(255), primary key (id));" $MYSQL_ENV_MYSQL_DATABASE
+mysql -h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -u "$MYSQL_ENV_MYSQL_USER" -p"$MYSQL_ENV_MYSQL_PASSWORD" -e "insert into user (name) values ('hoge');" $MYSQL_ENV_MYSQL_DATABASE
+mysql -h "$MYSQL_PORT_3306_TCP_ADDR" -P "$MYSQL_PORT_3306_TCP_PORT" -u "$MYSQL_ENV_MYSQL_USER" -p"$MYSQL_ENV_MYSQL_PASSWORD" -e "select * from user;" $MYSQL_ENV_MYSQL_DATABASE
