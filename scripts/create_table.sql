@@ -1,6 +1,5 @@
 create table user(
-  id int,
+  id int not null auto_increment,
   username varchar(255),
-  email varchar(255),
-  password char(30)
+  primary key (id)
 );

@@ -13,12 +13,20 @@ build:
         name: env
         code: env
     - script:
-        name: Wait for MariaDB connection
+        name: Wait for MySQL connection
         code: sleep 10s
     - script:
         name: migrate database
         code: |
           ./scripts/migrate.sh
+    - script:
+        name: run app
+        code: |
+          python3 app.py
+    - script:
+        name: test
+        code: |
+          curl http://localhost:8888/user/1
 
 dummy:
   steps:
@@ -48,7 +56,7 @@ dev:
         name: env
         code: env
     - script:
-        name: "Wait for MySQL connection"
+        name: Wait for MySQL connection
         code: sleep 10s
     - script:
         name: migrate database
