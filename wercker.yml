@@ -19,6 +19,7 @@ build:
         name: migrate database
         code: |
           ./scripts/migrate.sh
+    - pip-install
     - script:
         name: run app
         code: |
