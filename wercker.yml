@@ -1,5 +1,4 @@
 box: algas/wercker-mybox
-
 build:
   services:
     - id: mysql
@@ -42,26 +41,6 @@ dummy:
 migrate:
   steps:
     - pip-install
-    - script:
-        name: migrate database
-        code: |
-          ./scripts/migrate.sh
-
-dev:
-  services:
-    - id: mysql
-      env:
-        MYSQL_RANDOM_ROOT_PASSWORD: yes
-        MYSQL_USER: test
-        MYSQL_PASSWORD: secret
-        MYSQL_DATABASE: user
-  steps:
-    - script:
-        name: env
-        code: env
-    - script:
-        name: Wait for MySQL connection
-        code: sleep 10s
     - script:
         name: migrate database
         code: |
