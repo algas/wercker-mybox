@@ -8,7 +8,7 @@ RUN \
   apt-get upgrade -y
 
 ## install python and other packages
-RUN apt-get install -y vim lv curl wget git python3 mysql-client libmysqlclient-dev build-essential
+RUN apt-get install -y vim lv curl wget git python3 python3-dev mysql-client libmysqlclient-dev build-essential
 
 ## install pip
 RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py
