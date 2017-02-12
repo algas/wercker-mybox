@@ -3,7 +3,7 @@ box:
 
 build:
   services:
-    - id: mysql
+    - id: mysql:5.7
       env:
         MYSQL_RANDOM_ROOT_PASSWORD: yes
         MYSQL_USER: test
