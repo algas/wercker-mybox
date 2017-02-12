@@ -1,7 +1,5 @@
 box:
   id: algas/wercker-mybox
-  expose:
-    - "8888"
 
 build:
   services:
@@ -11,8 +9,6 @@ build:
         MYSQL_USER: test
         MYSQL_PASSWORD: secret
         MYSQL_DATABASE: user
-      expose:
-        - "3306"
   steps:
     - script:
         name: env
