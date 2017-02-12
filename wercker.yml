@@ -31,7 +31,7 @@ build:
     - script:
         name: test
         code: |
-          curl http://localhost:8888/user/1
+          python3 test.py
 
 dummy:
   steps:
