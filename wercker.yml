@@ -1,4 +1,8 @@
-box: algas/wercker-mybox
+box:
+  id: algas/wercker-mybox
+  expose:
+    - "8888"
+
 build:
   services:
     - id: mysql
@@ -7,26 +11,23 @@ build:
         MYSQL_USER: test
         MYSQL_PASSWORD: secret
         MYSQL_DATABASE: user
+      expose:
+        - "3306"
   steps:
     - script:
         name: env
         code: env
     - script:
         name: Wait for MySQL connection
-        code: sleep 10s
+        code: sleep 20s
     - script:
         name: migrate database
         code: |
           ./scripts/migrate.sh
     - script:
-        name: run app
+        name: install app
         code: |
-          pip3 install tornado==4.4.2
-          pip3 install mysqlclient==1.3.9
-    - script:
-        name: run app
-        code: |
-          python3 app.py
+          pip3 install -r requirements.txt
     - script:
         name: test
         code: |
