@@ -2,6 +2,13 @@ box:
   id: algas/wercker-mybox
 
 build:
+  steps:
+    - script:
+        name: install app
+        code: |
+          pip3 install -r requirements.txt
+
+test:
   services:
     - id: mysql:5.7
       env:
@@ -32,9 +39,9 @@ build:
 deploy:
   steps:
     - internal/docker-push:
-        username: $USERNAME
-        password: $PASSWORD
-        tag: base
+        username: $DOCKER_HUB_USERNAME
+        password: $DOCKER_HUB_PASSWORD
+        tag: built
         repository: algas/wercker-mybox
         registry: https://registry.hub.docker.com
 
