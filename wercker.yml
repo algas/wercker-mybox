@@ -29,6 +29,15 @@ build:
         code: |
           python3 test.py
 
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        tag: base
+        repository: algas/wercker-mybox
+        registry: https://registry.hub.docker.com
+
 dev:
   services:
     - id: mysql:5.7
