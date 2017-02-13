@@ -29,17 +29,31 @@ build:
         code: |
           python3 test.py
 
-dummy:
+dev:
+  services:
+    - id: mysql:5.7
+      env:
+        MYSQL_RANDOM_ROOT_PASSWORD: yes
+        MYSQL_USER: test
+        MYSQL_PASSWORD: secret
+        MYSQL_DATABASE: user
   steps:
     - script:
-        name: dummy
-        code: |
-          echo 'hello'
-
-migrate:
-  steps:
-    - pip-install
+        name: env
+        code: env
+    - script:
+        name: Wait for MySQL connection
+        code: sleep 20s
     - script:
         name: migrate database
         code: |
           ./scripts/migrate.sh
+    - script:
+        name: install app
+        code: |
+          pip3 install -r requirements.txt
+    - script:
+        name: run
+        code: |
+          python3 app.py
+        reload: true
