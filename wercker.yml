@@ -41,8 +41,8 @@ deploy:
     - internal/docker-push:
         username: $DOCKER_HUB_USERNAME
         password: $DOCKER_HUB_PASSWORD
-        tag: built
-        repository: algas/wercker-mybox
+        tag: latest
+        repository: algas/wercker-mybox-built
         registry: https://registry.hub.docker.com
 
 dev:
