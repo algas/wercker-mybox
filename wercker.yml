@@ -68,8 +68,7 @@ dev:
         name: install app
         code: |
           pip3 install -r requirements.txt
-    - script:
-        name: run
+    - internal/watch:
         code: |
           python3 app.py
         reload: true
